@@ -50,6 +50,7 @@ define('MODULE_PAYMENT_SEPALASTSCHRIFT_TEXT_BANK_ERROR_14', 'Keine Lastschriftfr
 define('JS_BANK_BLZ', '* Bitte geben Sie die BLZ / BIC Ihrer Bank ein!\n\n');
 define('JS_BANK_NAME', '* Bitte geben Sie den Namen Ihrer Bank ein!\n\n');
 define('JS_BANK_NUMBER', '* Bitte geben Sie Ihre Kontonummer / IBAN ein!\n\n');
+define('JS_BANK_NUMBER_LENGTH', '* Die IBAN muss 22 Stellen haben!\n\n');
 define('JS_BANK_OWNER', '* Bitte geben Sie den Namen des Kontoinhabers ein!\n\n');
 define('JS_BANK_OWNER_EMAIL', '* Bitte geben Sie die E-Mail-Adresse des Kontoinhabers ein!\n\n');
 define('MODULE_PAYMENT_SEPALASTSCHRIFT_TEXT_EMAIL_FOOTER', 

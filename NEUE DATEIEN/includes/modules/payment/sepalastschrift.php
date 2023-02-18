@@ -2,11 +2,11 @@
 /**
  * @package SEPA Lastschrift 
  * Zen Cart German Specific 
- * @copyright Copyright 2003-2022 Zen Cart Development Team
+ * @copyright Copyright 2003-2023 Zen Cart Development Team
  * Zen Cart German Version - www.zen-cart-pro.at
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
- * @version $Id: sepalastschrift.php 2022-06-02 10:26:16Z webchills $
+ * @version $Id: sepalastschrift.php 2023-02-18 17:54:16Z webchills $
  */
 
 class sepalastschrift {
@@ -62,12 +62,14 @@ class sepalastschrift {
 	  if (($total+1) < MODULE_PAYMENT_SEPALASTSCHRIFT_MIN_ORDER) {
 		$this->enabled = false;
 	  }
-    }
-
+    }      
+    
+   
     function javascript_validation() {
       $js = 'if (payment_value == "' . $this->code . '") {' . "\n" .
             '  var sepalastschrift_blz = document.checkout_payment.sepalastschrift_blz.value;' . "\n" .
             '  var sepalastschrift_number = document.checkout_payment.sepalastschrift_number.value;' . "\n" .
+            '  var sepalastschrift_number_length = sepalastschrift_number.replace(/\s/g, "").length;' . "\n" .
             '  var sepalastschrift_owner = document.checkout_payment.sepalastschrift_owner.value;' . "\n" .
             '  var sepalastschrift_owner_email = document.checkout_payment.sepalastschrift_owner_email.value;' . "\n";
             $js .='    if (sepalastschrift_number.substr(0, 2) != "DE" && sepalastschrift_blz == "") {' . "\n" .
@@ -76,6 +78,14 @@ class sepalastschrift {
             '    }' . "\n" .
             '    if (sepalastschrift_number == "") {' . "\n" .
             '      error_message = error_message + "' . JS_BANK_NUMBER . '";' . "\n" .
+            '      error = 1;' . "\n" .
+            '    }' . "\n" .
+            '    if (sepalastschrift_number_length < "22") {' . "\n" .
+            '      error_message = error_message + "' . JS_BANK_NUMBER_LENGTH . '";' . "\n" .
+            '      error = 1;' . "\n" .
+            '    }' . "\n" .
+            '    if (sepalastschrift_number_length > "22") {' . "\n" .
+            '      error_message = error_message + "' . JS_BANK_NUMBER_LENGTH . '";' . "\n" .
             '      error = 1;' . "\n" .
             '    }' . "\n" .
             '    if (sepalastschrift_owner == "") {' . "\n" .

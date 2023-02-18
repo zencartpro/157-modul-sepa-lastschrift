@@ -50,6 +50,7 @@ define('MODULE_PAYMENT_SEPALASTSCHRIFT_TEXT_BANK_ERROR_14', 'No valid Country fo
 define('JS_BANK_BLZ', '* Please enter your bank code!\n\n');
 define('JS_BANK_NAME', '* Please enter your bank name!\n\n');
 define('JS_BANK_NUMBER', '* Please enter your account number!\n\n');
+define('JS_BANK_NUMBER_LENGTH', '* The IBAN must have 22 characters!\n\n');
 define('JS_BANK_OWNER', '* Please enter the name of the account owner!\n\n');
 define('JS_BANK_OWNER_EMAIL', '* Please enter E-Mail-Address of the account owner!\n\n');
 define('MODULE_PAYMENT_SEPALASTSCHRIFT_TEXT_EMAIL_FOOTER', 
