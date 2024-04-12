@@ -1,7 +1,7 @@
 <?php
 /**
  * @package SEPA Lastschrift 
- * @copyright Copyright 2003-2022 Zen Cart Development Team
+ * @copyright Copyright 2003-2024 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license https://www.zen-cart-pro.at/license/3_0.txt GNU General Public License V3.0
  * based on:
@@ -23,10 +23,10 @@
  * https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/serviceangebot/bankleitzahlen/download-bankleitzahlen-602592
  * Aktuelle Beschreibung der Pruefverfahren:
  * https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/serviceangebot/pruefzifferberechnung/pruefzifferberechnung-fuer-kontonummern-603282
- * @version $Id: sepa-check.php 2022-06-02 10:10:14 webchills $
+ * @version $Id: sepa-check.php 2024-04-12 14:10:14 webchills $
 */
 
-
+#[AllowDynamicProperties]
 class AccountCheck {
 
 /* Folgende Returncodes werden übergeben                                        */
@@ -43,9 +43,15 @@ class AccountCheck {
 /* 128 -> interner Fehler, der zeigt, dass eine Methode nicht implementiert ist */
 /*                                                                              */
 
+public $checkmode;
+public $sepalastschrift_iban;
+public $sepalastschrift_bic;
+public $sepalastschrift_blz;
+public $IBAN_country;
+
 	function __construct() {
 		$this->sepalastschrift_number = ''; // Enthält nach der Prüfung die geprüfte Kontonummer
-		$this->sepalatschrift_blz = ''; // Enthält nach der Prüfung die geprüfte BLZ
+		$this->sepalastschrift_blz = ''; // Enthält nach der Prüfung die geprüfte BLZ
 		$this->Bankname = ''; // Enthält nach der Prüfung den Namen der Bank bei der Suche nach BLZ
 		$this->PRZ = ''; //Enthält nach der Prüfung die Prüfziffer
   	$this->checkmode = 'classic'; // 

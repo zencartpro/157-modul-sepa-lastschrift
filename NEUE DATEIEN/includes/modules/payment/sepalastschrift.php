@@ -52,6 +52,16 @@
     public $sort_order;
     public $min_order;
     public $info;
+    public $sepalastschrift_status;
+    public $sepalastschrift_prz;
+    public $sepalastschrift_blz;
+    public $sepalastschrift_bic;
+    public $sepalastschrift_iban;
+    public $sepalastschrift_owner;
+    public $sepalastschrift_owner_email;
+    public $iban_mode;
+    public $sepalastschrift_bankname;    
+    public $sepalastschrift_number; 
     
     function __construct() {
       global $order;
