@@ -23,7 +23,7 @@
  * https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/serviceangebot/bankleitzahlen/download-bankleitzahlen-602592
  * Aktuelle Beschreibung der Pruefverfahren:
  * https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/serviceangebot/pruefzifferberechnung/pruefzifferberechnung-fuer-kontonummern-603282
- * @version $Id: sepa-check.php 2024-04-12 14:10:14 webchills $
+ * @version $Id: sepa-check.php 2024-06-08 13:48:14 webchills $
 */
 
 #[AllowDynamicProperties]
@@ -3094,7 +3094,7 @@ class IbanAccountCheck extends AccountCheck {
 			
 			// IBAN auf einheitliches Format mit Großbuchstaben und ohne Leerstellen bringen
 			// Swift (BIC) können damit ebenfalls formatiert werden
-			$iban = trim($iban); 
+			$iban = trim((string)$iban); 
 			$iban = strtoupper($iban);
 			$iban = preg_replace('/[^A-Z0-9]/','',$iban);
 			
